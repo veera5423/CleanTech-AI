@@ -1,0 +1,22 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fff9;
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+}
+
+.hero {
+  background-size: cover;
+  background-position: center;
+}
+
+.card {
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}

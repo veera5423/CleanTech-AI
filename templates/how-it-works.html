@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- How It Works Header -->
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="fw-bold text-success" data-aos="fade-up">How It Works</h2>
+    <p class="lead mt-3" data-aos="fade-up" data-aos-delay="200">
+      Discover the AI-powered process behind CleanTech's waste classification system.
+    </p>
+  </div>
+</section>
+
+<!-- Steps Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Step 1 -->
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in">
+        <div class="card shadow h-100 border-0 text-center p-4">
+          <div class="step-number bg-success text-white rounded-circle mx-auto mb-3"
+               style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">
+            1
+          </div>
+          <h5 class="fw-bold">Upload Image</h5>
+          <p class="small">Users upload a photo of the waste item through our intuitive web interface.</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card shadow h-100 border-0 text-center p-4">
+          <div class="step-number bg-success text-white rounded-circle mx-auto mb-3"
+               style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">
+            2
+          </div>
+          <h5 class="fw-bold">Preprocessing</h5>
+          <p class="small">Image is resized to 224x224 pixels and preprocessed using MobileNetV2 techniques.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+        <div class="card shadow h-100 border-0 text-center p-4">
+          <div class="step-number bg-success text-white rounded-circle mx-auto mb-3"
+               style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">
+            3
+          </div>
+          <h5 class="fw-bold">AI Prediction</h5>
+          <p class="small">Pre-trained CNN analyzes image features using transfer learning for accurate results.</p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="600">
+        <div class="card shadow h-100 border-0 text-center p-4">
+          <div class="step-number bg-success text-white rounded-circle mx-auto mb-3"
+               style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">
+            4
+          </div>
+          <h5 class="fw-bold">Result Display</h5>
+          <p class="small">Predicted class and confidence level are shown instantly with the uploaded image.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Technology Explanation -->
+<section class="py-5 bg-success text-white">
+  <div class="container text-center" data-aos="fade-up">
+    <h3 class="fw-bold mb-4">Powered by Transfer Learning</h3>
+    <p class="lead">
+      Our model leverages pre-trained convolutional neural networks (CNNs) trained on vast datasets,
+      enabling high accuracy with minimal computational resources. This approach classifies waste into
+      Biodegradable, Recyclable, or Trash categories efficiently.
+    </p>
+  </div>
+</section>
+
+{% endblock %}

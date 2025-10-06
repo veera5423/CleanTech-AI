@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- About Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <!-- Content -->
+      <div class="col-md-8" data-aos="fade-up">
+        <h2 class="fw-bold text-success">About CleanTech</h2>
+        <p class="mt-3">
+          CleanTech is an intelligent waste classification system powered by Artificial Intelligence.  
+          By employing advanced transfer learning techniques, it classifies waste into categories such as 
+          <strong>Plastic, Metal, Glass, Paper, and Organic</strong> with high precision.
+        </p>
+        <p>
+          The project aims to <strong>reduce human error</strong>, 
+          <strong>support recycling efforts</strong>, and 
+          <strong>promote sustainable waste management practices</strong> across the globe.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="bg-light py-5">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-6 mb-4" data-aos="zoom-in">
+        <div class="p-4 shadow rounded h-100 bg-white">
+          <i class="fas fa-bullseye fa-3x text-success mb-3"></i>
+          <h4 class="fw-bold">Our Mission</h4>
+          <p>To create a cleaner, greener, and healthier world by developing AI-powered solutions for sustainable waste management.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="p-4 shadow rounded h-100 bg-white">
+          <i class="fas fa-eye fa-3x text-success mb-3"></i>
+          <h4 class="fw-bold">Our Vision</h4>
+          <p>To make waste segregation effortless, scalable, and impactful — contributing towards a circular economy and zero-waste future.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold text-success mb-5" data-aos="fade-up">Our Journey</h2>
+    <div class="row">
+      <div class="col-md-3 text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+        <i class="fas fa-lightbulb fa-2x text-success mb-2"></i>
+        <h6>Idea Phase</h6>
+        <p class="small">Recognizing the urgent need for smart waste management solutions.</p>
+      </div>
+      <div class="col-md-3 text-center mb-4" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-flask fa-2x text-success mb-2"></i>
+        <h6>Research</h6>
+        <p class="small">Studying transfer learning techniques and waste datasets for accuracy.</p>
+      </div>
+      <div class="col-md-3 text-center mb-4" data-aos="fade-up" data-aos-delay="300">
+        <i class="fas fa-microchip fa-2x text-success mb-2"></i>
+        <h6>Development</h6>
+        <p class="small">Building and training the AI model using pre-trained CNNs.</p>
+      </div>
+      <div class="col-md-3 text-center mb-4" data-aos="fade-up" data-aos-delay="400">
+        <i class="fas fa-seedling fa-2x text-success mb-2"></i>
+        <h6>Impact</h6>
+        <p class="small">Helping municipalities, recycling plants, and communities go greener.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
