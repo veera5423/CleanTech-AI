@@ -5,6 +5,7 @@ import numpy as np
 from flask import Flask, render_template, request, redirect, url_for, flash
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+from werkzeug.utils import secure_filename
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
 # Flask app
@@ -41,7 +42,8 @@ def home():
     if request.method == "POST":
         file = request.files.get("file")
         if file:
-            filename = file.filename
+            # Use secure_filename to prevent security issues and normalize the name
+            filename = secure_filename(file.filename)
             filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             file.save(filepath)
             label, confidence = predict_image(filepath)
@@ -93,4 +95,8 @@ def result():
 # Run the App
 # -----------------------
 if __name__ == "__main__":
-    app.run(debug=True)
+    # For production environments like Render, Gunicorn is used.
+    # This block is for local development.
+    port = int(os.environ.get("PORT", 5000))
+    # Use 0.0.0.0 to be accessible from the network, not just localhost.
+    app.run(debug=False, host="0.0.0.0", port=port)
