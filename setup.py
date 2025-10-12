@@ -12,10 +12,11 @@ import shutil
 
 def check_python_version():
     """Check if Python version is 3.7 or higher."""
+    print("Checking Python version...")
     if sys.version_info < (3, 7):
-        print("Error: Python 3.7 or higher is required.")
+        print(f"❌ Error: Python 3.7 or higher is required. You are using {sys.version.split()[0]}.")
         sys.exit(1)
-    print(f"✓ Python version {sys.version.split()[0]} detected.")
+    print(f"✅ Python version {sys.version.split()[0]} is compatible.")
 
 def create_virtual_env(env_name="venv"):
     """Create a virtual environment."""
@@ -24,7 +25,7 @@ def create_virtual_env(env_name="venv"):
         return
     print(f"Creating virtual environment '{env_name}'...")
     venv.create(env_name, with_pip=True)
-    print("✓ Virtual environment created.")
+    print(f"✅ Virtual environment '{env_name}' created.")
 
 def install_dependencies(env_name="venv"):
     """Install dependencies from requirements.txt."""
@@ -37,19 +38,21 @@ def install_dependencies(env_name="venv"):
     print("Installing dependencies...")
     try:
         subprocess.check_call([pip_path, "install", "-r", requirements_file])
-        print("✓ Dependencies installed.")
+        print("✅ Dependencies installed successfully.")
     except subprocess.CalledProcessError as e:
-        print(f"Error installing dependencies: {e}")
+        print(f"❌ Error installing dependencies: {e}")
+        print("Please check your network connection and try again.")
         sys.exit(1)
 
 def verify_files():
     """Verify presence of required model and config files."""
+    print("Verifying required files...")
     required_files = ["waste_classifier.h5", "class_indices.json"]
     missing_files = [f for f in required_files if not os.path.exists(f)]
     if missing_files:
-        print(f"Error: Missing required files: {', '.join(missing_files)}")
+        print(f"❌ Error: Missing required files: {', '.join(missing_files)}. Please ensure they are in the root directory.")
         sys.exit(1)
-    print("✓ All required model and config files are present.")
+    print("✅ All required files are present.")
 
 def main():
     print("Setting up CleanTech AI Waste Classification App...")
@@ -57,12 +60,12 @@ def main():
     create_virtual_env()
     install_dependencies()
     verify_files()
-    print("\nSetup complete!")
+    print("\n🚀 Setup complete! 🚀")
     print("To activate the virtual environment:")
     if os.name == "nt":
-        print("  venv\\Scripts\\activate")
+        print(f"  > .\\{os.path.join('venv', 'Scripts', 'activate')}")
     else:
-        print("  source venv/bin/activate")
+        print(f"  $ source {os.path.join('venv', 'bin', 'activate')}")
     print("Then run: python app.py")
 
 if __name__ == "__main__":

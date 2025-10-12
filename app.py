@@ -6,21 +6,23 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from werkzeug.utils import secure_filename
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+# from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from tensorflow.keras.applications.vgg16 import preprocess_input
 
 # Flask app
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "static/uploads"
 app.secret_key = "cleantech_secret_key"  # for flash messages
 
-# Ensure upload folder exists
-os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
 # Load model & class indices
 model = load_model("waste_classifier.h5")
 with open("class_indices.json") as f:
     class_indices = json.load(f)
 class_labels = [class_indices[str(i)] for i in range(len(class_indices))]
+
+# Ensure upload folder exists
+os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
 # Helper function: predict uploaded image
 def predict_image(img_path):
@@ -42,7 +44,7 @@ def home():
     if request.method == "POST":
         file = request.files.get("file")
         if file:
-            # Use secure_filename to prevent security issues and normalize the name
+           
             filename = secure_filename(file.filename)
             filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             file.save(filepath)
@@ -95,7 +97,7 @@ def result():
 # Run the App
 # -----------------------
 if __name__ == "__main__":
-    # For production environments like Render, Gunicorn is used.
+    
     # This block is for local development.
     port = int(os.environ.get("PORT", 5000))
     # Use 0.0.0.0 to be accessible from the network, not just localhost.
