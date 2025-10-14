@@ -9,7 +9,7 @@ The project aims to **reduce human error**, **support recycling efforts**, and *
 ## Features
 
 - **Image Upload and Classification**: Upload waste images and get instant classification results with confidence scores.
-- **High Accuracy**: Utilizes a pre-trained MobileNetV2 model fine-tuned for waste classification.
+- **High Accuracy**: Utilizes a pre-trained VGG16 model fine-tuned for waste classification.
 - **User-Friendly Web Interface**: Clean, responsive design built with Bootstrap and Flask.
 - **Multiple Pages**: Includes About, Uses, Integration, Impact, How It Works, and Contact sections.
 - **Flash Messages**: Provides user feedback for form submissions.
@@ -107,6 +107,7 @@ CleanTech-AI/
 - **AI/ML**: TensorFlow, Keras (for model loading and prediction)
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
 - **Data Handling**: NumPy
+
 
 
 
