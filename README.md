@@ -1,4 +1,4 @@
-﻿# CleanTech-AI [demo video](https://drive.google.com/file/d/1Scjjys9tNOlCtzlbInaFODc8bpnVcZuC/view?usp=sharing)
+﻿# CleanTech-AI [[demo video]](https://drive.google.com/file/d/1Scjjys9tNOlCtzlbInaFODc8bpnVcZuC/view?usp=sharing)
 
 ## AI-Powered Waste Classification System
 
@@ -107,6 +107,7 @@ CleanTech-AI/
 - **AI/ML**: TensorFlow, Keras (for model loading and prediction)
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
 - **Data Handling**: NumPy
+
 
 
 
