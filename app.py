@@ -6,8 +6,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from werkzeug.utils import secure_filename
-# from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-from tensorflow.keras.applications.vgg16 import preprocess_input
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+# from tensorflow.keras.applications.vgg16 import preprocess_input
 
 # Flask app
 app = Flask(__name__)
@@ -44,16 +44,18 @@ def home():
     if request.method == "POST":
         file = request.files.get("file")
         if file:
-           
+
             filename = secure_filename(file.filename)
             filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             file.save(filepath)
             label, confidence = predict_image(filepath)
+            requires_weight = (label == "Recyclable Images")
             return render_template(
                 "result.html",
                 label=label,
                 confidence=round(confidence*100,2),
-                filename=filename
+                filename=filename,
+                requires_weight=requires_weight
             )
     return render_template("index.html", title="Home")
 
@@ -83,14 +85,19 @@ def contact():
         name = request.form.get("name")
         email = request.form.get("email")
         message = request.form.get("message")
-        # You can save to DB or send email here
-        flash("Thank you! Your message has been sent successfully.", "success")
+
+        # Save to file
+        with open("contact_messages.txt", "a") as f:
+            f.write(f"Name: {name}\nEmail: {email}\nMessage: {message}\n---\n")
+
+        flash("Thank you! Your message has been send successfully.", "success")
+
         return redirect(url_for("contact"))
     return render_template("contact.html", title="Contact")
 
 @app.route("/result")
 def result():
-    # Just in case someone directly visits /result
+    
     return redirect(url_for("home"))
 
 # -----------------------

@@ -2,4 +2,4 @@ Flask==3.1.2
 tensorflow==2.20.0
 numpy==2.3.3
 Pillow==11.3.0
-
+sendgrid==6.11.0
